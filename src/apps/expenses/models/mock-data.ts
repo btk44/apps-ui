@@ -60,7 +60,7 @@ export const transactions: Transaction[] = [
     { id: 5, userId: 1, amount: 125.2, direction: Direction.Debit, accountId: 9, categoryId: 3, date: makeDate(1, 10, 7, 45), comment: 'Fuel and train pass', active: true, transferId: null, version: 1 },
     { id: 6, userId: 1, amount: 980, direction: Direction.Debit, accountId: 3, categoryId: 5, date: makeDate(1, 12, 14, 20), comment: 'Electricity and internet', active: true, transferId: null, version: 1 },
     { id: 7, userId: 1, amount: 420, direction: Direction.Credit, accountId: 8, categoryId: 7, date: makeDate(1, 14, 11, 20), comment: 'Freelance design project', active: true, transferId: null, version: 1 },
-    { id: 8, userId: 1, amount: 76.3, direction: Direction.Debit, accountId: 2, categoryId: 10, date: makeDate(1, 16, 16, 5), comment: 'Office supplies', active: true, transferId: null, version: 1 },
+    { id: 8, userId: 1, amount: 76.3, direction: Direction.Debit, accountId: 2, categoryId: 10, date: makeDate(1, 16, 16, 5), comment: '', active: true, transferId: null, version: 1 },
     { id: 9, userId: 1, amount: 139, direction: Direction.Debit, accountId: 10, categoryId: 8, date: makeDate(1, 18, 12, 40), comment: 'Pharmacy visit', active: true, transferId: null, version: 1 },
     { id: 10, userId: 1, amount: 280, direction: Direction.Debit, accountId: 5, categoryId: 9, date: makeDate(1, 21, 10, 10), comment: 'Weekend trip to Paris', active: true, transferId: null, version: 1 },
     { id: 11, userId: 1, amount: 640.5, direction: Direction.Debit, accountId: 1, categoryId: 2, date: makeDate(2, 2, 17, 45), comment: 'Supermarket refill', active: true, transferId: null, version: 1 },
