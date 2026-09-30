@@ -5,21 +5,21 @@ import { t } from "./labels"
 
 export const data: AppData =
 {
-    name: t["What To Do"],
+    name: t["act_conf_title"],
     logo: StarIcon,
-    description: t["Activities around"],
+    description: t["act_conf_desc"],
     navigation: [{
-        title: t["Activities"],
+        title: t["act_conf_menu_title"],
         url: "#",
         icon: BikeIcon,
         isActive: true,
         items:[
             {
-                title: t["Add new activity"],
+                title: t["act_conf_menu_add"],
                 url: "/what-to-do/form"
             },
             {
-                title: t["Activities search"],
+                title: t["act_conf_menu_search"],
                 url: "/what-to-do/search"
             }
         ]

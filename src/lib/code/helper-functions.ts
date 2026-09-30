@@ -1,0 +1,8 @@
+export function formatDate(date: Date): string {
+    return new Date(date).toLocaleDateString('en-GB', { 
+        month: 'short', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    })
+}

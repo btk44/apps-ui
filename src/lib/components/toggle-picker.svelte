@@ -3,16 +3,9 @@
     import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
 
-    let { id, options, label, onValueChange }: 
-        { id:string, options: {value: string, description: string}[], label: string, 
-                               onValueChange: (values: string[]) => void } = $props()
-
-    let selected = $state<string[]>([]);
-    export function reset(): void {
-        selected = [];
-        if (onValueChange)
-            onValueChange(selected);
-    }
+    let { id, options, label, value = $bindable<string[]>(), onValueChange }: 
+        { id:string, options: {value: string, description: string}[], label: string,
+          value?: string[], onValueChange?: (values: string[]) => void } = $props()
 
     function handleValueChange(values: string[]) {
         if (onValueChange)
@@ -22,7 +15,7 @@
  
 <div class="flex flex-col gap-2">
     <Label class="ml-1" for="{id}-input">{label}</Label>
-    <ToggleGroup.Root id={id} bind:value={selected} 
+    <ToggleGroup.Root id={id} bind:value={value} 
         type="multiple" variant="outline" spacing={2} size="default" class="flex flex-wrap w-full"
         onValueChange={handleValueChange} >
         {#each options as option (option.value)}

@@ -30,6 +30,46 @@ export const ActivityService = {
     //     }
     // },
 
+    GetCategories: async function() {    
+        try{
+            return [
+                {id: 1, name: "na świeżym powietrzu"},
+                {id: 2, name: "w pomieszczeniach"},
+                {id: 3, name: "sport"},
+                {id: 4, name: "sztuka"},
+                {id: 5, name: "muzyka"},
+                {id: 6, name: "jedzenie"},
+                {id: 7, name: "podróże"},
+                {id: 8, name: "edukacja"},
+                {id: 9, name: "zdrowie"},
+                {id: 10, name: "technologia"},
+                {id: 11, name: "rozrywka"},
+                {id: 12, name: "zakupy"},
+                {id: 13, name: "spotkania towarzyskie"},
+                {id: 14, name: "społeczność"},
+                {id: 15, name: "wolontariat"},
+                {id: 16, name: "natura"},
+                {id: 17, name: "fitness"},
+                {id: 18, name: "przygoda"},
+                {id: 19, name: "relaks"}
+            ]
+            return await this.Get(`${this.apiUrl}/${this.activityUrl}/categories`)
+        } catch(e) {
+            console.log('Category GET failed')
+            throw e
+        }
+    },
+
+    GetTargets: async function() {    
+        try{
+            return [{id: 1, name: "dorośli"}, {id: 2, name: "dzieci"}, {id: 5, name: "seniorzy"}, {id: 3, name: "rodziny"}, {id: 4, name: "zwierzęta"}]
+            return await this.Get(`${this.apiUrl}/${this.activityUrl}/targets`)
+        } catch(e) {
+            console.log('Target GET failed')
+            throw e
+        }
+    },
+
     Post: async function(url: string, filters: any) {
         const response = await fetch(`${url}`, { method: 'POST', body: JSON.stringify(filters), headers: this.GetHeaders() })
         return await response.json()

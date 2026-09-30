@@ -49,7 +49,7 @@
             <Card.Title class="font-semibold text-lg">Wprowadź nową aktywność</Card.Title>
             <Separator orientation="horizontal" class="mt-1 mb-4" />
             <Card.Content class="text-sm flex gap-2 flex-wrap px-0">
-                <InputWithLabel id="name" label={t["Name"]} placeholder={t["input part of the name"]} bind:value={data.name}/>
+                <InputWithLabel id="name" label={t["act_add_name"]} placeholder={t["act_add_name_ph"]} bind:value={data.name}/>
                 <InputWithLabel id="description" label="Opis" placeholder="test" bind:value={data.description} multiline={true}/>
                 <Separator orientation="horizontal" class="mt-1 mb-4" />
 				<div class="flex w-full flex-wrap gap-3 lg:flex-nowrap">
@@ -61,15 +61,15 @@
                 <InputWithLabel id="map-url" label="Link do mapy" placeholder="..." bind:value={data.mapUrl} />
                 <InputWithLabel id="website" label="Link do mapy" placeholder="..." bind:value={data.url} />
                 <Separator orientation="horizontal" class="mt-1 mb-4" />
-                <DatePicker id="start-date" label={t["Start date"]} placeholder={t["pick a date"]} bind:value={startDate}/>
-                <DatePicker id="end-date" label={t["End date"]} placeholder={t["pick a date"]} bind:value={endDate}/>
+                <DatePicker id="start-date" label={t["act_add_date_from"]} placeholder={t["act_add_date_ph"]} bind:value={startDate}/>
+                <DatePicker id="end-date" label={t["act_add_date_to"]} placeholder={t["act_add_date_ph"]} bind:value={endDate}/>
                 <Separator orientation="horizontal" class="mt-1 mb-4" />
-                <TogglePicker bind:this={categoriesToggle} id="categories" options={categories} label={t["Categories"]} onValueChange={updateCategories}/>
+                <TogglePicker bind:this={categoriesToggle} id="categories" options={categories} label={t["act_add_categories"]} onValueChange={updateCategories}/>
                 <Separator orientation="horizontal" class="mt-1 mb-4" />
-                <TogglePicker bind:this={targetsToggle} id="targets" options={targets} label={t["Target audience"]} onValueChange={updateTargets}/>
+                <TogglePicker bind:this={targetsToggle} id="targets" options={targets} label={t["act_add_audience"]} onValueChange={updateTargets}/>
                 <div class="w-full text-right">
-                    <Button variant="ghost" onclick={clearForm}>{t["Clear"]}</Button>
-                    <Button variant="default" onclick={triggerSave}>{t["Save"]}</Button>
+                    <Button variant="ghost" onclick={clearForm}>{t["act_add_clear_button"]}</Button>
+                    <Button variant="default" onclick={triggerSave}>{t["act_add_save_button"]}</Button>
                 </div>
             </Card.Content>
         </Card.Header>
