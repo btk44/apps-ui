@@ -1,6 +1,6 @@
-const LocalStorage = typeof window !== "undefined" ? localStorage : null
+const LocalStorage = typeof window !== "undefined" ? window.localStorage : null
 
-export const loadFromLocalStorage = (key: string, additionalActionOnValue: any = null) => {
+export const loadFromLocalStorage = <T = unknown, R = T>(key: string, additionalActionOnValue: ((value: T) => R) | null = null) => {
     if(!LocalStorage) return null
 
     const localStorageString = LocalStorage.getItem(key)
@@ -14,7 +14,7 @@ export const loadFromLocalStorage = (key: string, additionalActionOnValue: any =
     return value
 }
 
-export const saveToLocalStorage = (key: string, value: any) => {
+export const saveToLocalStorage = (key: string, value: unknown) => {
     if(!LocalStorage) return
 
     LocalStorage.setItem(key, JSON.stringify(value));

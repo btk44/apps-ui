@@ -2,8 +2,8 @@
     import * as Select from "$lib/components/ui/select/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
     
-    let { id, label, placeholder, items, value = $bindable<string>() }:
-        { id: string, label: string, placeholder: string, items: { value: string, label: string }[], value?: string } = $props();
+    let { id, name, label, placeholder, items, value = $bindable<string>() }:
+        { id: string, name?: string, label: string, placeholder: string, items: { value: string, label: string }[], value?: string } = $props();
 
     const displayValue = $derived(
         items.find((f) => f.value === value)?.label ?? placeholder
@@ -13,7 +13,7 @@
  
 <div class="flex flex-col gap-2">
     <Label class="ml-1" for="{id}-input">{label}</Label>
-    <Select.Root type="single" bind:value>
+    <Select.Root type="single" {name} bind:value>
         <Select.Trigger>
             {displayValue}
         </Select.Trigger>

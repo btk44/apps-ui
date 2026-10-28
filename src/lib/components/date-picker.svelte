@@ -11,11 +11,13 @@
  
  let {
   id,
+  name,
   label,
   placeholder,
   value = $bindable<CalendarDate | undefined>()
  }: {
   id: string;
+  name?: string;
   label: string;
   placeholder: string;
   value?: CalendarDate;
@@ -26,6 +28,10 @@
  
 <div class="flex flex-col gap-2">
  <Label class="ml-1" for="{id}-date">{label}</Label>
+ {#if name}
+  <!-- ISO date (YYYY-MM-DD) -->
+  <input type="hidden" {name} value={value?.toString() ?? ""} />
+ {/if}
  <Popover.Root bind:open>
   <Popover.Trigger id="{id}-date">
    {#snippet child({ props })}

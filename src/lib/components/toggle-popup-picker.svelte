@@ -7,8 +7,8 @@
   import CheckIcon from "@lucide/svelte/icons/check";
 	import TogglePicker from "./toggle-picker.svelte";
 
-  let { id, options, label, value = $bindable<string[]>(), onValueChange }: 
-      { id:string, options: {value: string, description: string}[], label: string,
+  let { id, name, options, label, value = $bindable<string[]>(), onValueChange }: 
+      { id:string, name?: string, options: {value: string, description: string}[], label: string,
         value?: string[], onValueChange?: (values: string[]) => void } = $props()
 
   function handleValueChange(values: string[]) {
@@ -17,7 +17,7 @@
   }
 
   function formatPlaceholder(value: string[]){
-    if(!value || !value.length) return "nic"
+    if(!value || !value.length) return "..."
 
     let firstOption = options.find(x => x.value == value[0])?.description
     if (value.length === 1) return firstOption
@@ -31,6 +31,11 @@
 
 <div class="flex flex-col gap-2">
     <Label class="ml-1" for="{id}-input">{label}</Label>
+    {#if name}
+        {#each value ?? [] as selected (selected)}
+            <input type="hidden" {name} value={selected} />
+        {/each}
+    {/if}
     <Button variant="outline" onclick={() => (open = true)}>
         {formatPlaceholder(value)}
     </Button>

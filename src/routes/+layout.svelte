@@ -14,8 +14,8 @@
 
 	let { children } = $props();
 
-	import { appsData } from '../apps/apps-configuration'
-	import { gt } from "../apps/apps-global-labels"
+	import { appsData } from '$lib/apps/apps-configuration'
+	import { gt } from "$lib/apps/apps-global-labels"
 	let activeApp = $state(appsData[0])
 	function handleAppChange(app: AppData){
 		activeApp = app

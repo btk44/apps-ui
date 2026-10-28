@@ -14,12 +14,12 @@
   let {
     value = $bindable<LatLng | null>(null),
     initialCenter, initialZoom = 12,
-    id, label,
+    id, name, label,
     popupHeader, popupDescription, noLocationSelectedLabel
   }: {
     value?: LatLng | null;
     initialCenter: LatLng; initialZoom?: number;
-    id: string, label: string,
+    id: string, name?: string, label: string,
     popupHeader: string, popupDescription: string, noLocationSelectedLabel: string
   } = $props();
 
@@ -113,6 +113,10 @@
 
 <div class="flex flex-col gap-2">
     <Label class="ml-1" for="{id}-input">{label}</Label>
+    {#if name && value}
+        <input type="hidden" name="{name}-lat" value={value.lat} />
+        <input type="hidden" name="{name}-lng" value={value.lng} />
+    {/if}
     <Button variant="outline" onclick={() => (open = true)}>
     {#if value}
        [ {value.lat.toFixed(5)} , {value.lng.toFixed(5)} ]

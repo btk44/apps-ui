@@ -1,6 +1,6 @@
 import type { ActivitySearchFilters } from "../models/activity-search-filters"
 import type { ActivitySearchItem } from "../models/activity-search-item"
-import { activitySearchItems } from '../services/mock-data'
+import { activitySearchItems } from './mock-data.server'
 
 export const ActivityService = {
     apiUrl: 'http://localhost:5000/api', // windows
@@ -30,7 +30,7 @@ export const ActivityService = {
     //     }
     // },
 
-    GetCategories: async function() {    
+    GetCategories: async function(): Promise<Array<{id: number, name: string}>> {    
         try{
             return [
                 {id: 1, name: "na świeżym powietrzu"},
@@ -60,7 +60,7 @@ export const ActivityService = {
         }
     },
 
-    GetTargets: async function() {    
+    GetTargets: async function(): Promise<Array<{id: number, name: string}>> {    
         try{
             return [{id: 1, name: "dorośli"}, {id: 2, name: "dzieci"}, {id: 5, name: "seniorzy"}, {id: 3, name: "rodziny"}, {id: 4, name: "zwierzęta"}]
             return await this.Get(`${this.apiUrl}/${this.activityUrl}/targets`)
