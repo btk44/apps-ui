@@ -4,8 +4,8 @@ export interface ActivitySearchItem {
     description: string
     mapUrl: string
     url: string
-    startDate: Date
-    endDate: Date
+    startDate: Date | null
+    endDate: Date | null
     categories: string[]
     targets: string[]
     // there are more but not needed for now    

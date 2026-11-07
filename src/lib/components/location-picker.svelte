@@ -14,12 +14,12 @@
   let {
     value = $bindable<LatLng | null>(null),
     initialCenter, initialZoom = 12,
-    id, name, label,
+    id, name, label, errorLabel,
     popupHeader, popupDescription, noLocationSelectedLabel
   }: {
     value?: LatLng | null;
     initialCenter: LatLng; initialZoom?: number;
-    id: string, name?: string, label: string,
+    id: string, name?: string, label: string, errorLabel?: string,
     popupHeader: string, popupDescription: string, noLocationSelectedLabel: string
   } = $props();
 
@@ -117,13 +117,16 @@
         <input type="hidden" name="{name}-lat" value={value.lat} />
         <input type="hidden" name="{name}-lng" value={value.lng} />
     {/if}
-    <Button variant="outline" onclick={() => (open = true)}>
+    <Button variant="outline" onclick={() => (open = true)} class={[errorLabel && errorLabel.length && "border-destructive"]}>
     {#if value}
        [ {value.lat.toFixed(5)} , {value.lng.toFixed(5)} ]
     {:else}
         <MapPinIcon/>
     {/if}
     </Button>
+    {#if errorLabel && errorLabel.length}
+        <Label class="ml-2 text-xs text-destructive" for="{id}-input">{errorLabel}</Label>
+    {/if}
 </div>
 
 <Dialog.Root bind:open>

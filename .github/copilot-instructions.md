@@ -20,3 +20,5 @@
 - Run `npm run lint` for Prettier and ESLint.
 - Run `npm run build` when changes affect production behavior or build configuration.
 - There is no configured test script; do not claim tests were run unless a test runner is added and used.
+
+

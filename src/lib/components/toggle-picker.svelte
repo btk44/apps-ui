@@ -3,8 +3,8 @@
     import * as ToggleGroup from "$lib/components/ui/toggle-group/index.js";
     import { Label } from "$lib/components/ui/label/index.js";
 
-    let { id, options, label, value = $bindable<string[]>(), onValueChange }: 
-        { id:string, options: {value: string, description: string}[], label: string,
+    let { id, options, label, errorLabel, value = $bindable<string[]>(), onValueChange }: 
+        { id:string, options: {value: string, description: string}[], label: string, errorLabel?: string,
           value?: string[], onValueChange?: (values: string[]) => void } = $props()
 
     function handleValueChange(values: string[]) {
@@ -16,7 +16,7 @@
 <div class="flex flex-col gap-2">
     <Label class="ml-1" for="{id}-input">{label}</Label>
     <ToggleGroup.Root id={id} bind:value={value} 
-        type="multiple" variant="outline" spacing={2} size="default" class="flex flex-wrap w-full"
+        type="multiple" variant="outline" spacing={2} size="default" class={[errorLabel && errorLabel.length && "border-destructive", "flex flex-wrap w-full"]}
         onValueChange={handleValueChange} >
         {#each options as option (option.value)}
         <ToggleGroup.Item
@@ -29,4 +29,7 @@
         </ToggleGroup.Item>
     {/each}
     </ToggleGroup.Root>
+    {#if errorLabel && errorLabel.length}
+        <Label class="ml-2 text-xs text-destructive" for="{id}-input">{errorLabel}</Label>
+    {/if}
 </div>

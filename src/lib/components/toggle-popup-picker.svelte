@@ -7,8 +7,8 @@
   import CheckIcon from "@lucide/svelte/icons/check";
 	import TogglePicker from "./toggle-picker.svelte";
 
-  let { id, name, options, label, value = $bindable<string[]>(), onValueChange }: 
-      { id:string, name?: string, options: {value: string, description: string}[], label: string,
+  let { id, name, options, label, errorLabel, value = $bindable<string[]>(), onValueChange }: 
+      { id:string, name?: string, options: {value: string, description: string}[], label: string, errorLabel?: string,
         value?: string[], onValueChange?: (values: string[]) => void } = $props()
 
   function handleValueChange(values: string[]) {
@@ -36,9 +36,12 @@
             <input type="hidden" {name} value={selected} />
         {/each}
     {/if}
-    <Button variant="outline" onclick={() => (open = true)}>
+    <Button variant="outline" onclick={() => (open = true)} class={[errorLabel && errorLabel.length && "border-destructive"]}>
         {formatPlaceholder(value)}
     </Button>
+    {#if errorLabel && errorLabel.length}
+        <Label class="ml-2 text-xs text-destructive" for="{id}-input">{errorLabel}</Label>
+    {/if}
 </div>
 
 <Dialog.Root bind:open>

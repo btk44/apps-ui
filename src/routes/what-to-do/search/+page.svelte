@@ -227,8 +227,12 @@
 							{/each}
 						</div>
 						<Card.Description class="text-xs text-muted-foreground">
-							<span>Start: {formatDate(activity.startDate)}</span>
-							<span>End: {formatDate(activity.endDate)}</span>
+							{#if activity.startDate}
+								<span>Start: {formatDate(activity.startDate)}</span>
+							{/if}
+							{#if activity.endDate}
+								<span>End: {formatDate(activity.endDate)}</span>
+							{/if}
 						</Card.Description>
 					</Card.Header>
 				</Card.Root>

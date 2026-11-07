@@ -43,6 +43,17 @@ export const t = {
 	act_add_date_to: 'Data do',
 	act_add_categories: 'Kategorie',
 	act_add_audience: 'Grupa docelowa',
+	act_add_location: 'Lokalizacja aktywności',
+	act_add_location_header: 'Wybierz lokalizację aktywności',
+	act_add_location_description: 'Zaznacz na mapie miejsce, w którym odbywa się aktywność.',
+	act_add_no_location: 'Nie wybrano punktu',
+	act_add_name_required: 'Wprowadź nazwę aktywności.',
+	act_add_location_required: 'Wybierz prawidłową lokalizację na mapie.',
+	act_add_invalid_fields: 'Sprawdź wprowadzone dane i długość pól.',
+	act_add_invalid_dates: 'Sprawdź daty. Data końcowa nie może być wcześniejsza niż początkowa.',
+	act_add_save_failed: 'Nie udało się zapisać aktywności. Spróbuj ponownie.',
+	act_add_save_success: 'Aktywność została zapisana.',
+	act_add_saving: 'Zapisywanie...',
 	act_add_save_button: 'Zapisz',
 	act_add_clear_button: 'Wyczyść'
 };

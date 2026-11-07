@@ -13,12 +13,14 @@
   id,
   name,
   label,
+  errorLabel,
   placeholder,
   value = $bindable<CalendarDate | undefined>()
  }: {
   id: string;
   name?: string;
   label: string;
+  errorLabel?: string;
   placeholder: string;
   value?: CalendarDate;
  } = $props();
@@ -38,7 +40,10 @@
     <Button
      {...props}
      variant="outline"
-     class="w-48 justify-between font-normal"
+    class={[
+     "w-48 justify-between font-normal",
+     errorLabel && errorLabel.length && "border-destructive"
+    ]}
     >
      {value
       ? value.toDate(getLocalTimeZone()).toLocaleDateString()
@@ -58,4 +63,7 @@
    />
   </Popover.Content>
  </Popover.Root>
+ {#if errorLabel && errorLabel.length }
+  <Label class="ml-2 text-xs text-destructive" for="{id}-date">{errorLabel}</Label>
+ {/if}
 </div>

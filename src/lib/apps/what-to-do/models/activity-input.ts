@@ -1,16 +1,25 @@
 export interface ActivityInput {
-    id: number
-    name: string
-    description: string
-    country: string
-    region: string
-    city: string
-    address: string
-    mapUrl: string
-    url: string
-    startDate: Date
-    endDate: Date
-    categories: string[]
-    targets: string[]
-    // there are more but not needed for now    
+	name: string;
+	description?: string;
+	countryCode?: string;
+	region?: string;
+	city?: string;
+	address?: string;
+	latitude: number;
+	longitude: number;
+	activityType?: 'place' | 'activity' | 'event';
+	mapUrl?: string;
+	url?: string;
+	startDate?: Date;
+	endDate?: Date;
+	active?: boolean;
+}
+
+export interface CreatedActivity extends ActivityInput {
+	id: number;
+	activityType: 'place' | 'activity' | 'event';
+	active: boolean;
+	version: number;
+	createdAt: Date;
+	updatedAt: Date;
 }
